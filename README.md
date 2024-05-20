@@ -1,4 +1,4 @@
-# **mainsFrequency**
+# **Graphical Mains Frequency Logger**
 
 ### Energy Transition Live In Black & White
 
