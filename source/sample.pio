@@ -1,0 +1,30 @@
+;sample.pio qrt@qland.de
+
+.program sample
+
+;SAMPLE_PIN     15              set in sm_config_set_jmp_pin()
+
+    pull                        ;pull start value from TX FIFO to OSR
+
+.wrap_target
+    mov  x OSR                  ;move OSR to x
+
+waitL0:
+    jmp  x-- waitL1             ;x--, x==0? no, check pin 
+    jmp  ready                  ;x==0 timeout, jump ready
+waitL1:
+    jmp  pin waitL0             ;pin==1? yes, continue count down
+
+waitH:
+    jmp  pin ready              ;pin==1? yes, jump ready 
+    jmp  x-- waitH              ;x--, x==0? no, check pin
+
+ready:
+    mov  ISR x                  ;move x to ISR, period = start - x
+    push noblock                ;push period from ISR to RX FIFO
+    
+    irq  0                      ;RX FIFO ready to read
+.wrap
+
+% c-sdk {
+%}
