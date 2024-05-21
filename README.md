@@ -21,7 +21,7 @@ Regardless of whether you follow the grid frequency of, for example, the Europea
 
 (There are also independent grid sections that are decoupled through direct current conversion and have their own phase positions.)
 
-<details> <summary> > [!NOTE]<br> > German Text </summary>
+<details> <summary> German Text </summary>
 
 Netzfrequenz und Netzspannung sind wichtige Indikatoren für die Auslastung eines Verbundnetzes. Innerhalb eines solchen Netzes müssen Frequenz und Phase der erzeugenden Komponenten exakt gleich sein. Treten Abweichungen auf, beginnen die Erzeuger gegeneinander zu arbeiten, was im Extremfall von schweren Schäden bis zum Ausfall des Netzes oder Teilen davon führen kann. Dieses hochdynamische System aus vielen Erzeugern und Millionen von Verbrauchern muss deswegen ständig überwacht und im Gleichgewicht gehalten werden.
 
@@ -31,7 +31,7 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 
 (Es gibt auch unabhängige Netzabschnitte die durch Gleichstromwandlung abgekoppelt sind und eigene Phasenlagen aufweisen) 
 
-</details
+</details>
 
 <br>
 
@@ -49,6 +49,14 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 **4** - reset push button  
 **5** - debug connector  
 **6** - system LED  
+
+<details> <summary> **6** - system LED </summary>
+normal operation is indicated by a short flash every second  
+on engaging supply the system LED will flash rapidly (-> Start)  
+if reserve capacitor voltage is low, the display freezes and  
+the LED flashes rapidly until the capacitor is depleted
+</details>
+
 **7** - DCF LED  
 **8** - left push button  
 **9** - right push button
