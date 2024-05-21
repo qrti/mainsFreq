@@ -50,11 +50,11 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 **5** - debug connector  
 **6** - system LED  
 
-<details> <summary> **6** - system LED </summary>
-normal operation is indicated by a short flash every second  
-on engaging supply the system LED will flash rapidly (-> Start)  
-if reserve capacitor voltage is low, the display freezes and  
-the LED flashes rapidly until the capacitor is depleted
+<details> <summary> 6 - system LED </summary>
+normal operation is indicated by a short flash every second<br>
+on engaging supply the system LED will flash rapidly (-> Start)<br>  
+if reserve capacitor voltage is low, the display freezes and<br>
+the LED flashes rapidly until the capacitor is depleted<p>
 </details>
 
 **7** - DCF LED  
