@@ -57,7 +57,21 @@ if reserve capacitor voltage is low, the display freezes and<br>
 the LED flashes rapidly until the capacitor is depleted<p>
 </details>
 
+<details> <summary> 7 - DCF LED </summary>
+will flash in the every second rhythm of the DCF signal<br>
+after time is synced and verified the LED will light permanently<br>
+on the hour time is synced and verified anew (the LED will flash again)<br>
+if the LED lights up erratically DCF reception might be disturbed<p>
+</details>
+
 **7** - DCF LED  
+
+will flash in the every second rhythm of the DCF signal  
+after time is synced and verified the LED will light permanently  
+on the hour time is synced and verified anew (the LED will flash again)  
+if the LED lights up erratically DCF reception might be disturbed
+
+
 **8** - left push button  
 **9** - right push button
 
