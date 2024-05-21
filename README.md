@@ -22,7 +22,6 @@ Regardless of whether you follow the grid frequency of, for example, the Europea
 (There are also independent grid sections that are decoupled through direct current conversion and have their own phase positions.)
 
 <details> <summary> German Text </summary>
-
 Netzfrequenz und Netzspannung sind wichtige Indikatoren für die Auslastung eines Verbundnetzes. Innerhalb eines solchen Netzes müssen Frequenz und Phase der erzeugenden Komponenten exakt gleich sein. Treten Abweichungen auf, beginnen die Erzeuger gegeneinander zu arbeiten, was im Extremfall von schweren Schäden bis zum Ausfall des Netzes oder Teilen davon führen kann. Dieses hochdynamische System aus vielen Erzeugern und Millionen von Verbrauchern muss deswegen ständig überwacht und im Gleichgewicht gehalten werden.
 
 Durch vermehrte Einspeisung erneuerbarer Energien wie Wind- und Sonnenenergie ist diese Aufgabe wesentlich komplizierter geworden und dadurch schwerer zu tarieren. Das lässt sich insbesondere an Sonn- und Feiertagen mit wechselnden Wind- und Sonnenverhältnissen mitverfolgen. Obwohl oder gerade weil die Netzlast bedingt durch weniger industriellen Stromverbrauch geringer ist und durch wechselnde Wetterverhältnisse in rascher Folge Stromüberschuss oder -Mangel herrscht, haben die Frequenzhüter Mühe die Balance zu halten. Die Schwankungen bringen das Netz öfter an die Grenzen der festgelegten Toleranzen wie früher als überwiegend kontinuierliche Erzeuger wie Wasser-, Kohle- und Atomkraft eingespeist wurden.
@@ -30,7 +29,6 @@ Durch vermehrte Einspeisung erneuerbarer Energien wie Wind- und Sonnenenergie is
 Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Steckdose in Deutschland, Frankreich oder Italien mitverfolgt, wird der Kurvenverlauf zu jedem Zeitpunkt der Gleiche sein. Somit kann man Live mitverfolgen wie es um das Netz gerade bestellt ist.
 
 (Es gibt auch unabhängige Netzabschnitte die durch Gleichstromwandlung abgekoppelt sind und eigene Phasenlagen aufweisen) 
-
 </details>
 
 <br>
@@ -49,29 +47,7 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 **4** - reset push button  
 **5** - debug connector  
 **6** - system LED  
-
-<details> <summary> 6 - system LED </summary>
-normal operation is indicated by a short flash every second<br>
-on engaging supply the system LED will flash rapidly (-> Start)<br>  
-if reserve capacitor voltage is low, the display freezes and<br>
-the LED flashes rapidly until the capacitor is depleted<p>
-</details>
-
-<details> <summary> 7 - DCF LED </summary>
-will flash in the every second rhythm of the DCF signal<br>
-after time is synced and verified the LED will light permanently<br>
-on the hour time is synced and verified anew (the LED will flash again)<br>
-if the LED lights up erratically DCF reception might be disturbed<p>
-</details>
-
 **7** - DCF LED  
-
-will flash in the every second rhythm of the DCF signal  
-after time is synced and verified the LED will light permanently  
-on the hour time is synced and verified anew (the LED will flash again)  
-if the LED lights up erratically DCF reception might be disturbed
-
-
 **8** - left push button  
 **9** - right push button
 
