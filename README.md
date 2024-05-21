@@ -51,6 +51,8 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 **8** - left push button  
 **9** - right push button
 
+<br>
+
 <img src="images/cicygr.png" width=30>
 
 **1** - time base + screen time  
@@ -61,9 +63,13 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 **6** - day of week and time  
 **7** - mains fail
 
+<br>
+
 <img src="images/tryereup.png" width=30>
 
 grid load gets heavier, mains frequency gets lower
+
+<br>
 
 <img src="images/tryeredo.png" width=30>
 
@@ -100,7 +106,7 @@ in lowest resolution 180 seconds the screen holds about 15 hours
 
 **Page and Pages**  
 depending on time base one can scroll through more or less recorded pages  
-an asterisk in front of page means the display is not showing the current curve  
+an asterisk in front of page means the display is not showing the current curve     
 double press the right push button to see the current curve (the asterisk will disappear)  
 (-> Push Buttons)
 
@@ -191,4 +197,4 @@ Insight
 
 ---
 
-[qrt@qland.de](mailto:qrt@qland.de) 240520
+[qrt@qland.de](mailto:qrt@qland.de) 240521
