@@ -21,8 +21,8 @@ Regardless of whether you follow the grid frequency of, for example, the Europea
 
 (There are also independent grid sections that are decoupled through direct current conversion and have their own phase positions.)
 
-> [!TIP]  
-> <details> <summary> German Text </summary>
+> [!NOTE]  
+<details> <summary> German Text </summary>
 
 Netzfrequenz und Netzspannung sind wichtige Indikatoren für die Auslastung eines Verbundnetzes. Innerhalb eines solchen Netzes müssen Frequenz und Phase der erzeugenden Komponenten exakt gleich sein. Treten Abweichungen auf, beginnen die Erzeuger gegeneinander zu arbeiten, was im Extremfall von schweren Schäden bis zum Ausfall des Netzes oder Teilen davon führen kann. Dieses hochdynamische System aus vielen Erzeugern und Millionen von Verbrauchern muss deswegen ständig überwacht und im Gleichgewicht gehalten werden.
 
