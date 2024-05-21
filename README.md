@@ -21,8 +21,8 @@ Regardless of whether you follow the grid frequency of, for example, the Europea
 
 (There are also independent grid sections that are decoupled through direct current conversion and have their own phase positions.)
 
-> [!TIP]  
-> this is a tip
+[!TIP]  
+this is a tip
 
 <details> <summary> German Text </summary>
 
