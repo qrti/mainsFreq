@@ -70,7 +70,6 @@ void View::draw()
     page = pages ? is / PAGSI + 1 : 0;          // page
     if(page > pages) page = pages;              //
 
-    countFails();                               // count fails
     drawStatus();                               // draw
     drawTimeStamps();                           //
     drawSamples();                              //
@@ -78,35 +77,43 @@ void View::draw()
 
 void View::countFails()
 {
-    static bool f1=true, f2=false;
-    uint8_t status = Sample::samples[Sample::csi].status;
+    static bool fdi=true, fmi=true, fdo=false, fmo=false;       // fail dis/mis in/out
+    uint8_t stat = Sample::samples[Sample::csi].status;
 
-    if(status){
-        if(f1){
-            if(status & ERR_DIS) nDis++;
-            if(status & ERR_MIS) nMis++;
-        }
-
-        f1 = false;
+    if(stat & ERR_DIS){
+        if(fdi) nDis++;
+        fdi = false;
     }
     else{
-        f1 = true;
+        fdi = true;
+    }
+
+    if(stat & ERR_MIS){
+        if(fmi) nMis++;
+        fmi = false;
+    }
+    else{
+        fmi = true;
     }
 
     if(Sample::preShift){
-        status = Sample::samples[0].status;
+        stat = Sample::samples[0].status;
 
-        if(status){
-            f2 = true;
-        }
+        if(stat & ERR_DIS){
+            fdo = true;        
+        }    
         else{
-            if(f2){
-                if(status & ERR_DIS) nDis--;
-                if(status & ERR_MIS) nMis--;
-            }
-
-            f2 = false;
+            if(fdo) nDis--;
+            fdo = false;
         }
+
+        if(stat & ERR_MIS){
+            fmo = true;        
+        }    
+        else{
+            if(fmo) nMis--;
+            fmo = false;
+        }        
     }
 }
 
@@ -119,6 +126,8 @@ void View::drawStatus()
 
     sprintf(buf, "%c%u/%u", vsi<0 ? ' ' : '*'  ,page, pages);                   // * / page / pages
 	Text::drawText(buf, 8*FBW, 0, mains_10_7, TOPLEFT);
+
+    countFails();                                                               // count disturbances and missing waves
 
     if(nDis){                                                                   // number of disturbances
         sprintf(buf, "%c%s%u", CDIS, nDis<100 ? "" : ">", nDis<100 ? nDis : 99);
@@ -265,3 +274,39 @@ void View::nextView()
     if(++cView >= NUMVIEWS) 
         cView = 0;
 }
+
+// -----------------------------------------------------------------------------
+
+// void View::countFails()
+// {
+//     static bool f1=true, f2=false;
+//     uint8_t stat = Sample::samples[Sample::csi].status;
+// 
+//     if(stat){
+//         if(f1){
+//             if(stat & ERR_DIS) nDis++;
+//             if(stat & ERR_MIS) nMis++;
+//         }
+// 
+//         f1 = false;
+//     }
+//     else{
+//         f1 = true;
+//     }
+// 
+//     if(Sample::preShift){
+//         stat = Sample::samples[0].status;
+// 
+//         if(stat){
+//             f2 = true;
+//         }
+//         else{
+//             if(f2){
+//                 if(stat & ERR_DIS) nDis--;
+//                 if(stat & ERR_MIS) nMis--;
+//             }
+// 
+//             f2 = false;
+//         }
+//     }
+// }

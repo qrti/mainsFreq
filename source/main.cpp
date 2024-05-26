@@ -1,4 +1,8 @@
-// mainsFreq for raspberry pico V1.5 2405016 qrt@qland.de 
+// mainsFreq for raspberry pico V1.52 240526 qrt@qland.de 
+//
+// versions 
+// 1.5      initial
+// 1.52     revised countFails() in view.cpp
 
 #include <stdio.h>
 #include "pico/stdlib.h"
