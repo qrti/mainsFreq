@@ -1,7 +1,6 @@
 # **Graphical Mains Frequency Logger**
 
-### Energy Transition Live In Black & White
-#### 15 hours loop, update every second, DCF time, failure display
+### Energy Transition Live In Black & White<br><span style="font-size:80%;">update every second, 15 hours loop, DCF time, failure display</span>
 <br>
 
 <img src="images/01_top.jpg" width=480><br>
@@ -33,7 +32,6 @@ Egal ob man die Netzfrequenz z. B. des europäischen Verbundnetzes an einer Stec
 <br>
 
 ## Description
-
 <img src="images/02_description.png" width=640>
 <br>
 <br>
