@@ -1,12 +1,13 @@
 # **Graphical Mains Frequency Logger**
 
-### Energy Transition Live In Black & White<br><span style="font-size:80%;">update every second, 15 hours loop, DCF time, failure display</span>
+### Energy Transition Live In Black & White
+**update every second, 15 hours loop, DCF time, failure display**  
 <br>
 
 <img src="images/01_top.jpg" width=480><br>
 
-[-> views](#views)  
-[-> source](source)
+[**-> views**](#views)  
+[**-> source**](source)
 
 <br>
 
