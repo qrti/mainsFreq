@@ -14,6 +14,7 @@
 
 #define SAMPLE_PIN  			15
 #define NUMSAM                  15 * 60 * 60        // in s, max ~ (200 * 1024) / 2 / 3600 ~ 28 h
+#define SAMLEATI                3                   // sample lead time in dcf secs
 
 #define ERR_NONE                0<<0                // no error
 #define ERR_DIS                 1<<0                // disturbance error

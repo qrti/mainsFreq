@@ -48,7 +48,7 @@ void Sample::init()
 
 void Sample::initSamples()
 {
-    samples = (sSample*)malloc(sizeof(sSample) * NUMSAM);
+    samples = (sSample*)calloc(NUMSAM, sizeof(sSample));                        // allocate sample buffer and set to zero
 }
 
 void Sample::initPio()
@@ -152,7 +152,7 @@ void Sample::store(uint32_t secs)
 {
     read();
 
-    if(secs < 3)
+    if(secs < SAMLEATI)                                     // ignore first samples
         return;
 
     csi = si;

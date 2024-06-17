@@ -78,7 +78,11 @@ void View::draw()
 void View::countFails()
 {
     static bool fdi=true, fmi=true, fdo=false, fmo=false;       // fail dis/mis in/out
-    uint8_t stat = Sample::samples[Sample::csi].status;
+
+    if(Dcf::secs < SAMLEATI)                                    // ignore first samples                                  
+        return;
+
+    uint8_t stat = Sample::samples[Sample::csi].status;         // latest sample
 
     if(stat & ERR_DIS){
         if(fdi) nDis++;
@@ -97,7 +101,7 @@ void View::countFails()
     }
 
     if(Sample::preShift){
-        stat = Sample::samples[0].status;
+        stat = Sample::samples[0].status;                       // first sample
 
         if(stat & ERR_DIS){
             fdo = true;        
@@ -126,7 +130,7 @@ void View::drawStatus()
 
     sprintf(buf, "%c%u/%u", vsi<0 ? ' ' : '*'  ,page, pages);                   // * / page / pages
 	Text::drawText(buf, 8*FBW, 0, mains_10_7, TOPLEFT);
-
+    
     countFails();                                                               // count disturbances and missing waves
 
     if(nDis){                                                                   // number of disturbances
@@ -276,37 +280,3 @@ void View::nextView()
 }
 
 // -----------------------------------------------------------------------------
-
-// void View::countFails()
-// {
-//     static bool f1=true, f2=false;
-//     uint8_t stat = Sample::samples[Sample::csi].status;
-// 
-//     if(stat){
-//         if(f1){
-//             if(stat & ERR_DIS) nDis++;
-//             if(stat & ERR_MIS) nMis++;
-//         }
-// 
-//         f1 = false;
-//     }
-//     else{
-//         f1 = true;
-//     }
-// 
-//     if(Sample::preShift){
-//         stat = Sample::samples[0].status;
-// 
-//         if(stat){
-//             f2 = true;
-//         }
-//         else{
-//             if(f2){
-//                 if(stat & ERR_DIS) nDis--;
-//                 if(stat & ERR_MIS) nMis--;
-//             }
-// 
-//             f2 = false;
-//         }
-//     }
-// }
