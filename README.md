@@ -161,6 +161,8 @@ while the display before the fail stays frozen until the right push button is pr
 https://code.visualstudio.com/  
 
 **Compiled with**  
+https://marketplace.visualstudio.com/items?itemName=raspberry-pi.raspberry-pi-pico  
+https://github.com/raspberrypi/pico-vscode  
 https://github.com/raspberrypi/pico-sdk
 
 **Parts of the text were translated with help of GPT-4-turbo**  
