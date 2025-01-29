@@ -1,4 +1,4 @@
-// dcf V1.5 240316 qrt@qland.de
+// dcf V1.54 250129 qrt@qland.de
 //
 // V0.1     initial version
 // V0.3     automatic sec corrections
@@ -10,6 +10,7 @@
 // V1.3		arduino version
 // V1.4		ATMEGA 1284 timer 3 adaption, secs counter
 // V1.5     Raspberry Pico version
+// V1.54    changed timing
 
 #include "Dcf.h"
 
@@ -200,9 +201,9 @@ uint8_t Dcf::getData()
 {
     dt = deltaT(false);										// bit length
 
-    if(dt>70 && dt<110)                                     // zero
+    if(dt>MSZERO-MSTOL && dt<MSZERO+MSTOL)                  // zero
         bit = 0;
-    else if(dt>170 && dt<210)                               // one
+    else if(dt>MSONE-MSTOL && dt<MSONE+MSTOL)               // one
         bit = 0x80;
     else                                                    // not valid
         return 0;											// no error, ignore

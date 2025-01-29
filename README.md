@@ -9,6 +9,10 @@ Update every second, 15 hours loop, DCF time, Failure Display
 [**-> views**](#views)  
 [**-> source**](source)
 
+\- Revised Multi Core Startup  
+\- Changed DCF Timing  
+\- Fit for Raspberry Pi Pico Visual Studio Code Extension
+
 <br>
 
 ## Background
@@ -195,4 +199,4 @@ Insight
 
 ---
 
-[qrt@qland.de](mailto:qrt@qland.de) 240526
+[qrt@qland.de](mailto:qrt@qland.de) 250129

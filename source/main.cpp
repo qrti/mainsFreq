@@ -1,9 +1,12 @@
-// mainsFreq for raspberry pico V1.53 240617 qrt@qland.de 
+// mainsFreq for raspberry pico V1.54 250129 qrt@qland.de 
 //
 // versions 
 // 1.5      initial
 // 1.52     revised countFails() in view.cpp
 // 1.53     revised countFails() in view.cpp again
+// 1.54     revised multi core startup
+//          changed DCF timing
+//          fit for raspberry pi pico visual studio code extension
 
 #include <stdio.h>
 #include "pico/stdlib.h"
@@ -14,7 +17,7 @@
 #include "epaper.h"
 #include "draw.h"
 #include "text.h"
-#include "Dcf.h"
+#include "Dcf.h"    
 #include "sample.h"
 #include "view.h"
 #include "Key.h"
@@ -43,7 +46,7 @@ void key1_double();
 void display();
 
 uint8_t image[ISIZE];                                   // allocate image memory
-bool direrq;											// display refresh request
+volatile bool direrq = false;	                        // display refresh request
 
 #define NUMKEYS		    2	                            // number of keys
 #define KEY0_PIN        12                              // left  key pin
@@ -61,8 +64,8 @@ int main()
     gpio_set_dir(SYS_LED_PIN, GPIO_OUT);                //
     gpio_put(SYS_LED_PIN, 0);                           // LED off
 
-	keys[0].init(KEY0_PIN, &key0_short, &key0_long, &key0_double);  // init keys
-	keys[1].init(KEY1_PIN, &key1_short, &key1_long, &key1_double);	//     
+    keys[0].init(KEY0_PIN, &key0_short, &key0_long, &key0_double);  // init keys
+    keys[1].init(KEY1_PIN, &key1_short, &key1_long, &key1_double);	//     
 
     static repeating_timer_t mst;                       // add 20 ms service timer
     add_repeating_timer_ms(20, service, NULL, &mst);    //
@@ -91,7 +94,15 @@ int main()
     #endif
 
     #if MULTICORE == 1
-        multicore_launch_core1(core1_entry);
+        multicore_launch_core1(core1_entry);        
+        // uint32_t g = multicore_fifo_pop_blocking();
+
+        // uint16_t pp = g==123 ? 500 : 50;
+
+        // while(true){                                                                    // toggle LED until capacitors are depleted
+        //     gpio_put(SYS_LED_PIN, !gpio_get(SYS_LED_PIN));                              //
+        //     sleep_ms(pp);                                                               //
+        // }
     #endif
 
     adc_init();                                             // ADC init
@@ -107,16 +118,16 @@ int main()
     EPaper::displayFrame(POSTWAIT);                     //
 
     Draw::clear(true);                                  // clear display memory, block
-	Dcf::receive(false);								// start DCF receiver, do not wait
+    Dcf::receive(false);								// start DCF receiver, do not wait
     Sample::init();                                     // init sample collector
 
     // main loop - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-	uint32_t secs = 0;									// prepare wait for DCF valid
+    uint32_t secs = 0;									// prepare wait for DCF valid
 
     while(true){                                        // endless loop
         if(Dcf::secs != secs){                          // wait for next second
-	        secs = Dcf::secs;                           // prepare next wait
+            secs = Dcf::secs;                           // prepare next wait
             Sample::store(Dcf::secs);                   // store sample and timestamp
 
             checkPower();                               // check if power is sufficient
@@ -150,16 +161,20 @@ void checkPower()
 
 void prepDisplay()
 {
+
     View::draw();
-    direrq = true;
+    direrq = true;                                      // starts multicore display
+
+    // while(direrq)
+    //     tight_loop_contents();
 }
 
 // -----------------------------------------------------------------------------
 
 bool service(repeating_timer_t *mst)
 {
-	for(uint8_t i=0; i<NUMKEYS; i++)		            // check keys
-		keys[i].check();
+    for(uint8_t i=0; i<NUMKEYS; i++)		            // check keys
+        keys[i].check();
 
     return true;
 }
@@ -199,7 +214,9 @@ void key1_long()
 //
 void core1_entry()
 {
-    uint8_t fuc;                                                // full refresh counter
+    uint8_t fuc = 0;                                            // full refresh counter
+
+    // multicore_fifo_push_blocking(123);
 
     while(true){                                                // endless loop
         if(direrq){                                             // wait for display request

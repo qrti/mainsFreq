@@ -1,4 +1,4 @@
-// dcf raspberry pico V1.5 240515 qrt@qland.de
+// dcf raspberry pico V1.54 250129 qrt@qland.de
 
 #pragma once
 
@@ -30,6 +30,9 @@
 #define CET					0x80					// wintertime     CET  MEZ	(Z2=1, Z1=0)
 
 #define IGNOPU              10                      // ignore pulses after poweron
+#define MSZERO				100						// nominal ms DCF zero
+#define MSONE				200						//                one				
+#define	MSTOL				40						// DCF signal tolerance
 
 #define SYNCINI             (1<<0)                  // DCF sync init
 #define SYNCSEC             (1<<1)                  //          second
