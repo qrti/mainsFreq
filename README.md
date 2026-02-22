@@ -9,6 +9,7 @@ Update every second, 15 hours loop, DCF time, Failure Display
 [**-> views**](#views)  
 [**-> source**](source)
 
+\- Version for Display V2 [-> remarks](#remarks)  
 \- Revised Multi Core Startup  
 \- Changed DCF Timing  
 \- Fit for Raspberry Pi Pico Visual Studio Code Extension
@@ -197,8 +198,17 @@ Insight
 <br>
 
 <br>
+
+## Remarks
+
+Display V2 version 
+- despite display update time of V2 displays is as short as V1's, V2's internal processing seems to need more time, so sleep between display intervals is not worth it, therefore in case of power outage the support capacitor is drained much faster
+- a periodic full display refresh is not implemented, the documentaion does not mention it, so maybe it is not necessary  
+(software for V1 makes a full refresh every 256 seconds)
+
+<br>
 <br>
 
 ---
 
-[qrt@qland.de](mailto:qrt@qland.de) 250129
+[qrt@qland.de](mailto:qrt@qland.de) 260222
