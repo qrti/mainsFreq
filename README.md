@@ -204,7 +204,7 @@ Insight
 Display V2 version 
 - despite display update time of V2 displays is as short as V1's, V2's internal processing seems to need more time, so sleep between display intervals is not worth it, therefore in case of power outage the support capacitor is drained much faster
 - a periodic full display refresh is not implemented, the documentaion does not mention it, so maybe it is not necessary  
-(software for V1 makes a full refresh every 256 seconds)
+(software for V1 makes a full refresh every 256 updates)
 
 <br>
 <br>
